@@ -1,0 +1,42 @@
+.bodyDiv{
+    width: 100%;
+    min-height: 100vh;
+    margin-bottom: 1%;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+
+
+}
+
+.form{
+    display: flex;
+    justify-content: space-around;
+    width: 40%;
+    height: 7vh;
+    box-sizing: content-box;
+    margin-top: 2%;
+    border-radius: 16px;
+
+}
+
+
+.form input{
+    height: 100%;
+    flex: 1;
+    border: none;
+    border-radius: 16px;
+    background-color: rgb(50, 50, 79);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    outline: none;
+    padding-left: 4%;
+    color: white;
+    box-shadow: 2px 5px 5px rgba(0, 0, 0, 0.468);
+}
+
+::placeholder{
+    color: white;
+    font-family:sans-serif;
+}
+
