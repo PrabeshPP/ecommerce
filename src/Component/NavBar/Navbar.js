@@ -24,7 +24,7 @@ function NavBar(){
             <div className={classes.menu}>
             {
                 ListIcons.map((Icon)=>(
-                    <div className={classes.iconBox}>
+                    <div className={classes.iconBox} key={Icon}>
                     <Icon/>
                     </div>
                 ))

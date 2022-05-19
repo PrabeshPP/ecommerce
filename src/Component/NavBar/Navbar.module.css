@@ -89,5 +89,13 @@
     transition: 500ms linear ease-in-out;
 }
 
+@media (max-width:481px) {
+    .nav{
+        display: none;
+    }
+
+   
+    
+}
 
 
