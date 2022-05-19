@@ -1,5 +1,6 @@
 import { useCallback, useEffect ,useState} from "react";
 import classes from "./ListItem.module.css";
+import {FaCartPlus} from "react-icons/fa";
 
 const ListItem=()=>{
     const[list,setList]=useState([]);
@@ -37,6 +38,21 @@ const ListItem=()=>{
 
     return(
         <div className={classes.itemBox}>
+        {isLoading && <p>Loading....</p>}
+        {!isLoading && list.map((item)=>
+            <div className={classes.itemDiv} key={item.id}>
+                <img src={item.image} alt={item.title} className={classes.image}/>
+                <div className={classes.box}>
+                    <span className={classes.title}>{item.title}</span>
+                    <div className={classes.footer}>
+                    <span>${item.price}</span>
+                    <div className={classes.addtoCart}>
+                    <FaCartPlus className={classes.icon}/>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        )}
        
         </div>
     )

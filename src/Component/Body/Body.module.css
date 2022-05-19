@@ -19,10 +19,12 @@
     height: 7vh;
     box-sizing: content-box;
     border-radius: 16px;
-    background-color: rgb(50, 50, 79);
+    background-color: rgba(50, 50, 79, 0.731);
     box-shadow: 2px 5px 5px rgba(0, 0, 0, 0.468);
     position: sticky;
     top: 2%;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
 
 }
 
