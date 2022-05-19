@@ -3,8 +3,12 @@
     min-height: 100vh;
     margin-bottom: 1%;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     position: absolute;
+    justify-content: space-around;
+    background-color: #bbd2d8;
+    
 }
 
 .form{
@@ -14,10 +18,11 @@
     width: 40%;
     height: 7vh;
     box-sizing: content-box;
-    margin-top: 2%;
     border-radius: 16px;
     background-color: rgb(50, 50, 79);
     box-shadow: 2px 5px 5px rgba(0, 0, 0, 0.468);
+    position: sticky;
+    top: 2%;
 
 }
 

@@ -1,5 +1,6 @@
 import classes from "./Body.module.css";
 import {FiSearch} from "react-icons/fi";
+import ListItem from "./ListItem";
 const placeholderText="Search";
 
 function Body(){
@@ -14,6 +15,7 @@ function Body(){
                 <FiSearch/>
                 </div>
             </form>
+            <ListItem/>
         </div>
 
     )
