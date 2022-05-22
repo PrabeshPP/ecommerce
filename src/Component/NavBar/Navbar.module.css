@@ -53,6 +53,22 @@
     justify-content: center;
     border-radius: 12px;
     margin-top: 5%;
+    position: relative;
+}
+.circle{
+    border-radius: 50%;
+    background-color: red;
+    height: 40%;
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.8rem;
+    color: white;
+    font-weight: bold;
+    position: absolute;
+    right: -1%;
+    top: 10%;
 }
 
 .cart:hover{
