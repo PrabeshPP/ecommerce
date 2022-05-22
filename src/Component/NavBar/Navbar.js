@@ -6,6 +6,7 @@ import {IoExit} from "react-icons/io5";
 import { useState } from "react";
 import {CgProfile} from "react-icons/cg";
 import { useSelector } from "react-redux";
+import { NavLink } from "react-router-dom";
 
 
 function NavBar(){
@@ -22,13 +23,19 @@ function NavBar(){
                     <div className={classes.iconBox}>
                     <BiMenuAltLeft/>
                     </div>
-                    <div className={classes.iconBox}>
+                    <NavLink className={({isActive})=>isActive?classes.activeClass:classes.iconBox} to="/home">
+                    <div >
                     <SiHomeassistantcommunitystore/>
                     </div>
-                    <div className={classes.cart}>
+                    </NavLink>
+                    <NavLink to="/cart" className={({isActive})=>isActive?classes.activeClass:classes.cart}>
+                        {
+                            <div >
                     <FaShoppingBag/>
                     <div className={classes.circle}>{cart.totalQuantity}</div>
                     </div>
+                        }
+                    </NavLink>
             </div>
             <div className={classes.profile}>
                 {
