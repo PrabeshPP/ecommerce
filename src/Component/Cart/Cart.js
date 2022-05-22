@@ -1,10 +1,33 @@
 import classes from "./Cart.module.css";
 import { useSelector } from "react-redux";
-import {BsPlusLg} from "react-icons/bs";
-import {BiMinus} from "react-icons/bi";
+import { BsPlusLg } from "react-icons/bs";
+import { BiMinus } from "react-icons/bi";
 const Cart = () => {
   const cart = useSelector((state) => state.cart);
-  
+
+  const loadItem= 
+    cart.items.map((item)=>{
+    return <div className={classes.itemCard} key={item.id}>
+   <img src={item.image} className={classes.img} alt={item.title}/>
+
+   <div className={classes.desc}>
+     <div className={classes.descHeader}>
+       <span className={classes.title}>{item.title}</span>
+       <span>$ {item.totalPrice / item.quantity}</span>
+       <span>Total Quantity:{item.quantity}</span>
+       <span>Total Price:$ {item.totalPrice}</span>
+     </div>
+     <div className={classes.footer}>
+       <div className={classes.left}>
+         <button className={classes.button}>{<BiMinus />}</button>
+         <button className={classes.button}>{<BsPlusLg />}</button>
+       </div>
+     </div>
+   </div>
+ </div>
+    })
+
+
   return (
     <div className={classes.bodyDiv}>
       <div className={classes.container}>
@@ -13,25 +36,7 @@ const Cart = () => {
           <span className={classes.span2}>Deselect All Items</span>
           <div className={classes.hr}></div>
         </div>
-        <div className={classes.itemCard}>
-            <img src={cart.items[0].image} className={classes.img}/>
-
-           
-            <div className={classes.desc}>
-                <div className={classes.descHeader}>
-                <span className={classes.title}>{cart.items[0].title}</span>
-                <span>$ {cart.items[0].totalPrice/cart.items[0].quantity}</span>
-                <span>Total Quantity:{cart.items[0].quantity}</span>
-                <span>Total Price:$ {cart.items[0].totalPrice}</span>
-                </div>
-                <div className={classes.footer}>
-                    <div className={classes.left}>
-                    <button className={classes.button}>{<BiMinus/>}</button>
-                    <button className={classes.button}>{<BsPlusLg/>}</button>
-                    </div>
-                </div>
-            </div>
-        </div>
+        {loadItem}
       </div>
       <div className={classes.checkout}></div>
     </div>
