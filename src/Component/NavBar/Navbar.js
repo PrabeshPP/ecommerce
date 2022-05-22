@@ -7,11 +7,6 @@ import { useState } from "react";
 import {CgProfile} from "react-icons/cg";
 import { useSelector } from "react-redux";
 
-const ListIcons=[
-    BiMenuAltLeft,
-    SiHomeassistantcommunitystore,
-    FaShoppingBag,
-]
 
 function NavBar(){
     const cart=useSelector((state)=>state.cart);

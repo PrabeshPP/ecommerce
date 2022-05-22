@@ -15,7 +15,7 @@ const CartSlice=createSlice(
             addToCart(state,action){
                 const newItem=action.payload;
                 //Find method will return undefined if item doesnot exit || it will return the first object or element we are searching
-                const itemExist=state.items.find((item)=>item.id==newItem.id);
+                const itemExist=state.items.find((item)=>item.id===newItem.id);
                 state.totalQuantity++;
                 state.changed=true;
                 if(!itemExist){
