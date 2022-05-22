@@ -2,13 +2,15 @@ import { useCallback, useEffect, useState } from "react";
 import classes from "./ListItem.module.css";
 import { FaCartPlus } from "react-icons/fa";
 
+
+
 const ListItem = () => {
     const [list, setList] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const fetchData = useCallback(async () => {
         setIsLoading(true);
         try {
-            const response = await fetch("https://fakestoreapi.com/products");
+            const response = await fetch("https://e-commerce-fae42-default-rtdb.firebaseio.com/products.json");
             if (!response.ok) {
                 throw new Error("Could not fetch the Data");
             }
@@ -19,9 +21,8 @@ const ListItem = () => {
                     id: item.id,
                     image: item.image,
                     price: item.price,
-                    title: item.title,
-                    description: item.description,
-                    category: item.category
+                    title: item.name,
+                    description: item.desc,
                 })
             })
 
