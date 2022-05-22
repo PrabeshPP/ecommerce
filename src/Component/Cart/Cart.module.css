@@ -3,10 +3,56 @@
     min-height: 100vh;
     margin-bottom: 1%;
     display: flex;
-    flex-direction: column;
-    align-items: center;
     position: absolute;
     justify-content: space-around;
     background-color: #bbd2d8;
-    
+    align-items: flex-start;
+}
+
+.header{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.header .span1{
+    font-size: 1.6rem;
+    user-select: none;
+    -webkit-user-select: none;
+    color: black;
+    font-weight: 500;
+}
+
+.header .span2{
+    font-size: 0.8rem;
+    color: rgb(1, 85, 145);
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.container{
+    flex: 0.6;
+    margin-bottom: 2%;
+    margin-top: 2%;
+    margin-left: 5%;
+    display: flex;
+    flex-direction: column;
+}
+
+.checkout{
+    flex: 0.3;
+    background-color: red;
+    height: 40vh;
+    margin-top: 2%;
+}
+
+.itemCard{
+    margin-top: 2%;
+    height: 100%;
+    border:1px solid black;
+}
+
+.hr{
+   border-top: 2px solid black;
+   
 }
