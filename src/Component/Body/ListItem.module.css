@@ -14,6 +14,8 @@
     margin: 4%;
     display: flex;
     flex-direction: column;
+    background-color: white;
+    border-radius: 5%;
 }
 
 
@@ -21,10 +23,11 @@
     height: 35vh;
     width: 100%;
     object-fit: contain;
+    border-radius: 5%;
 }
 
 .image:hover{
-    background-color: rgba(0, 0, 0, 0.24);
+    mix-blend-mode: darken;
     cursor: pointer;
     transition: 2000ms linear ease-in-out;
 }

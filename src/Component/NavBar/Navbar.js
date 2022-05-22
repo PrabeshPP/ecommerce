@@ -22,13 +22,15 @@ function NavBar(){
     return(
         <div className={classes.nav}>
             <div className={classes.menu}>
-            {
-                ListIcons.map((Icon)=>(
-                    <div className={classes.iconBox} key={Icon}>
-                    <Icon/>
+                    <div className={classes.iconBox}>
+                    <BiMenuAltLeft/>
                     </div>
-                ))
-            }
+                    <div className={classes.iconBox}>
+                    <SiHomeassistantcommunitystore/>
+                    </div>
+                    <div className={classes.cart}>
+                    <FaShoppingBag/>
+                    </div>
             </div>
             <div className={classes.profile}>
                 {
