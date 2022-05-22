@@ -12,11 +12,12 @@ const Cart = () => {
           <div className={classes.hr}></div>
         </div>
         <div className={classes.itemCard}>
-            <div className={classes.image}>
+            <img src={cart.items[0].image} className={classes.img}/>
 
-            </div>
+           
             <div className={classes.desc}>
-
+                <span>{cart.items[0].title}</span>
+                <span>$ {cart.items[0].totalPrice}</span>
             </div>
         </div>
       </div>
