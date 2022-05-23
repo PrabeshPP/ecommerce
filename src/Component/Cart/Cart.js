@@ -2,31 +2,32 @@ import classes from "./Cart.module.css";
 import { useSelector } from "react-redux";
 import { BsPlusLg } from "react-icons/bs";
 import { BiMinus } from "react-icons/bi";
+import { TiTick } from "react-icons/ti";
 const Cart = () => {
   const cart = useSelector((state) => state.cart);
 
-  const loadItem= 
-    cart.items.map((item)=>{
-    return <div className={classes.itemCard} key={item.id}>
-   <img src={item.image} className={classes.img} alt={item.title}/>
+  const loadItem = cart.items.map((item) => {
+    return (
+      <div className={classes.itemCard} key={item.id}>
+        <img src={item.image} className={classes.img} alt={item.title} />
 
-   <div className={classes.desc}>
-     <div className={classes.descHeader}>
-       <span className={classes.title}>{item.title}</span>
-       <span>$ {item.totalPrice / item.quantity}</span>
-       <span>Total Quantity:{item.quantity}</span>
-       <span>Total Price:$ {item.totalPrice}</span>
-     </div>
-     <div className={classes.footer}>
-       <div className={classes.left}>
-         <button className={classes.button}>{<BiMinus />}</button>
-         <button className={classes.button}>{<BsPlusLg />}</button>
-       </div>
-     </div>
-   </div>
- </div>
-    })
-
+        <div className={classes.desc}>
+          <div className={classes.descHeader}>
+            <span className={classes.title}>{item.title}</span>
+            <span>$ {item.totalPrice / item.quantity}</span>
+            <span>Total Quantity:{item.quantity}</span>
+            <span>Total Price:$ {item.totalPrice}</span>
+          </div>
+          <div className={classes.footer}>
+            <div className={classes.left}>
+              <button className={classes.button}>{<BiMinus />}</button>
+              <button className={classes.button}>{<BsPlusLg />}</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  });
 
   return (
     <div className={classes.bodyDiv}>
@@ -38,7 +39,31 @@ const Cart = () => {
         </div>
         {loadItem}
       </div>
-      <div className={classes.checkout}></div>
+      <div className={classes.checkout}>
+        <div className={classes.freeShip}>
+          <div className={classes.circleTick}>
+            <TiTick />
+          </div>
+          <p>You address qualifies for FREE Shippig.</p>
+        </div>
+        <div className={classes.details}>
+          <p>
+            Choose this option at checkout.
+            <span className={classes.span}>See details</span>
+          </p>
+        </div>
+        <div className={classes.subtotal}>
+          <span className={classes.span1}>
+            SubTotal({cart.totalQuantity} items):<sup className={classes.sup}>$</sup>
+            <span className={classes.span2}>
+            {cart.subTotal}
+            </span>
+          </span>
+        </div>
+        <button className={classes.button}>
+          Proceed To Checkout
+        </button>
+      </div>
     </div>
   );
 };

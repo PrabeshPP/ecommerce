@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState={
     items:[],
     totalQuantity:0,
+    subTotal:0,
     changed:false
 }
 
@@ -17,6 +18,7 @@ const CartSlice=createSlice(
                 //Find method will return undefined if item doesnot exit || it will return the first object or element we are searching
                 const itemExist=state.items.find((item)=>item.id===newItem.id);
                 state.totalQuantity++;
+                state.subTotal+=newItem.price;
                 state.changed=true;
                 if(!itemExist){
                     state.items.push({
