@@ -1,10 +1,20 @@
 import classes from "./Cart.module.css";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { BsPlusLg } from "react-icons/bs";
 import { BiMinus } from "react-icons/bi";
 import { TiTick } from "react-icons/ti";
+import { cartSliceAction } from "../../Store/cartSlice";
 const Cart = () => {
   const cart = useSelector((state) => state.cart);
+  const dispatch = useDispatch();
+
+  const onAddToCart = ({ id, title, price, image }) => {
+    dispatch(cartSliceAction.addToCart({ id, title, price, image }));
+  };
+
+  const removeFromCart = (id) => {
+    dispatch(cartSliceAction.removeFromCart(id));
+  };
 
   const loadItem = cart.items.map((item) => {
     return (
@@ -20,8 +30,27 @@ const Cart = () => {
           </div>
           <div className={classes.footer}>
             <div className={classes.left}>
-              <button className={classes.button}>{<BiMinus />}</button>
-              <button className={classes.button}>{<BsPlusLg />}</button>
+              <button
+                className={classes.button}
+                onClick={() => {
+                  removeFromCart(item.id);
+                }}
+              >
+                {<BiMinus />}
+              </button>
+              <button
+                className={classes.button}
+                onClick={() => {
+                  onAddToCart({
+                    id: item.id,
+                    image: item.image,
+                    title: item.title,
+                    price: item.totalPrice / item.quantity,
+                  });
+                }}
+              >
+                {<BsPlusLg />}
+              </button>
             </div>
           </div>
         </div>
@@ -54,15 +83,12 @@ const Cart = () => {
         </div>
         <div className={classes.subtotal}>
           <span className={classes.span1}>
-            SubTotal({cart.totalQuantity} items):<sup className={classes.sup}>$</sup>
-            <span className={classes.span2}>
-            {cart.subTotal}
-            </span>
+            SubTotal({cart.totalQuantity} items):
+            <sup className={classes.sup}>$</sup>
+            <span className={classes.span2}>{cart.subTotal}</span>
           </span>
         </div>
-        <button className={classes.button}>
-          Proceed To Checkout
-        </button>
+        <button className={classes.button}>Proceed To Checkout</button>
       </div>
     </div>
   );
