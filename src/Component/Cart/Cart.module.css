@@ -27,12 +27,37 @@
 .noItem .span11{
     user-select: none;
     -webkit-user-select: none;
-    background: linear-gradient(90deg,rgb(0, 0, 0) ,teal);
-    background-clip: text;
-    color: transparent;
-    font-size: 1.0rem;
+    font-size: 1.3rem;
     font-weight: bold;
+    background-image:linear-gradient(
+        90deg,
+        #00ff00 ,
+        #7b00ff ,
+        #ff1361,
+        black 
+    ) ;
+    font-weight: 700;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation-name: animateText;
+    animation-duration: 7s;
+    animation-direction:alternate;
+    animation-iteration-count: infinite;
+    background-size: 200%;
 }
+
+@keyframes animateText {
+    0%{
+        background-position: 0%;
+    }
+    100%{
+        background-position: 200%;
+    }
+    
+}
+
+
 
 
 
