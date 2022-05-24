@@ -4,6 +4,7 @@ import { BsPlusLg } from "react-icons/bs";
 import { BiMinus } from "react-icons/bi";
 import { TiTick } from "react-icons/ti";
 import { cartSliceAction } from "../../Store/cartSlice";
+import {GiShoppingCart} from "react-icons/gi";
 const Cart = () => {
   const cart = useSelector((state) => state.cart);
   const dispatch = useDispatch();
@@ -58,8 +59,9 @@ const Cart = () => {
     );
   });
 
-  return (
-    <div className={classes.bodyDiv}>
+
+  const itemsCart=
+     <div className={classes.bodyDiv}>
       <div className={classes.container}>
         <div className={classes.header}>
           <span className={classes.span1}>Shopping Cart</span>
@@ -91,6 +93,17 @@ const Cart = () => {
         <button className={classes.button}>Proceed To Checkout</button>
       </div>
     </div>
+
+
+const noItem=<div className={classes.noItem}>
+  <GiShoppingCart className={classes.iconDiv}/>
+  <span className={classes.span11}>It looks like you have not added anything to cart.</span>
+</div>
+ 
+  
+  console.log(cart.items.length)
+  return (
+    cart.items.length===0?noItem:itemsCart
   );
 };
 

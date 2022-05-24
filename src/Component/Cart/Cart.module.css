@@ -9,6 +9,33 @@
     align-items: flex-start;
 }
 
+.noItem{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #bbd2d8;
+    flex-direction: column;
+    
+}
+
+.noItem .iconDiv{
+    font-size: 10.0rem;
+}
+
+.noItem .span11{
+    user-select: none;
+    -webkit-user-select: none;
+    background: linear-gradient(90deg,rgb(0, 0, 0) ,teal);
+    background-clip: text;
+    color: transparent;
+    font-size: 1.0rem;
+    font-weight: bold;
+}
+
+
+
 .header{
     width: 100%;
     display: flex;
