@@ -10,11 +10,6 @@ import { NavLink } from "react-router-dom";
 
 function NavBar() {
   const cart = useSelector((state) => state.cart);
-  const [isSignedIn, setSignedIn] = useState(true);
-
-  const onLogoutHandler = () => {
-    setSignedIn(!isSignedIn);
-  };
 
   return (
     <div className={classes.nav}>
@@ -47,16 +42,20 @@ function NavBar() {
         </NavLink>
       </div>
       <div className={classes.profile}>
-        {isSignedIn && (
-          <div className={classes.exit} onClick={onLogoutHandler}>
-            <IoExit />
-          </div>
-        )}
-        {!isSignedIn && (
-          <div className={classes.signIn} onClick={onLogoutHandler}>
-            <CgProfile />
-          </div>
-        )}
+        {
+          <NavLink
+            to="/login"
+            className={({ isActive }) =>
+              isActive ? classes.signInActive : classes.exit
+            }
+          >
+            {
+              <div>
+                <IoExit />
+              </div>
+            }
+          </NavLink>
+        }
       </div>
     </div>
   );
