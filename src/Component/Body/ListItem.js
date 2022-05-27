@@ -15,6 +15,11 @@ const ListItem = () => {
     dispatch(cartSliceAction.addToCart({ id, title, price, image }));
   };
 
+  const onRemoveFromCart=({id})=>{
+    dispatch(cartSliceAction.removeFromCart(id));
+
+  }
+
   const fetchData = useCallback(async () => {
     setIsLoading(true);
     try {
@@ -57,18 +62,10 @@ const ListItem = () => {
               <div className={classes.footer}>
                 <span>${item.price}</span>
                 {cart.items.find((product) => product.id === item.id) ? (
-                  <button
-                    className={classes.addtoCart}
-                    onClick={() => {
-                      onAddToCart({
-                        id: item.id,
-                        image: item.image,
-                        title: item.title,
-                        price: item.price,
-                      });
-                    }}
-                  >
-                    <BsFillCartCheckFill className={classes.icon} />
+                  <button className={classes.removeFromCart} onClick={()=>{
+                    onRemoveFromCart({id:item.id})
+                  }}>
+                    <BsFillCartCheckFill  />
                    
                   </button>
                 ) : (
@@ -83,7 +80,7 @@ const ListItem = () => {
                       });
                     }}
                   >
-                    <FaCartPlus className={classes.icon} />
+                    <FaCartPlus/>
                   </button>
                 )}
               </div>
