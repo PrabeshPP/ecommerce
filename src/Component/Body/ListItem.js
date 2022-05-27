@@ -1,10 +1,12 @@
 import { useCallback, useEffect, useState } from "react";
 import classes from "./ListItem.module.css";
 import { FaCartPlus } from "react-icons/fa";
-import { useDispatch } from "react-redux";
+import { BsFillCartCheckFill } from "react-icons/bs";
+import { useDispatch, useSelector } from "react-redux";
 import { cartSliceAction } from "../../Store/cartSlice";
 
 const ListItem = () => {
+  const cart = useSelector((state) => state.cart);
   const dispatch = useDispatch();
   const [list, setList] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -12,7 +14,6 @@ const ListItem = () => {
   const onAddToCart = ({ id, title, price, image }) => {
     dispatch(cartSliceAction.addToCart({ id, title, price, image }));
   };
-
 
   const fetchData = useCallback(async () => {
     setIsLoading(true);
@@ -55,14 +56,36 @@ const ListItem = () => {
               <span className={classes.title}>{item.title}</span>
               <div className={classes.footer}>
                 <span>${item.price}</span>
-                <button
-                  className={classes.addtoCart}
-                  onClick={()=>{
-                      onAddToCart({id:item.id,image:item.image,title:item.title,price:item.price})
-                  }}
-                >
-                  <FaCartPlus className={classes.icon} />
-                </button>
+                {cart.items.find((product) => product.id === item.id) ? (
+                  <button
+                    className={classes.addtoCart}
+                    onClick={() => {
+                      onAddToCart({
+                        id: item.id,
+                        image: item.image,
+                        title: item.title,
+                        price: item.price,
+                      });
+                    }}
+                  >
+                    <BsFillCartCheckFill className={classes.icon} />
+                   
+                  </button>
+                ) : (
+                  <button
+                    className={classes.addtoCart}
+                    onClick={() => {
+                      onAddToCart({
+                        id: item.id,
+                        image: item.image,
+                        title: item.title,
+                        price: item.price,
+                      });
+                    }}
+                  >
+                    <FaCartPlus className={classes.icon} />
+                  </button>
+                )}
               </div>
             </div>
           </div>
