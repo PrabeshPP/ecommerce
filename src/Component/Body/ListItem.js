@@ -24,8 +24,11 @@ const ListItem = () => {
   
   return (
     <div className={classes.itemBox}>
+    {
+      products.items.length===0 && <div className={classes.loadingSpinner}></div>
+    }
       
-      {products.items.map((item) => (
+      {products.items.length!==0 &&products.items.map((item) => (
           <div className={classes.itemDiv} key={item.id}>
           <NavLink to="/:1">{<img src={item.image} alt={item.title} className={classes.image} />}</NavLink>
             <div className={classes.box}>
