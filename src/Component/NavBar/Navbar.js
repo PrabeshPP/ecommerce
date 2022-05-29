@@ -3,8 +3,6 @@ import { BiMenuAltLeft } from "react-icons/bi";
 import { SiHomeassistantcommunitystore } from "react-icons/si";
 import { FaShoppingBag } from "react-icons/fa";
 import { IoExit } from "react-icons/io5";
-import { useState } from "react";
-import { CgProfile } from "react-icons/cg";
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 

@@ -101,7 +101,7 @@ const noItem=<div className={classes.noItem}>
 </div>
  
   
-  console.log(cart.items.length)
+
   return (
     cart.items.length===0?noItem:itemsCart
   );
