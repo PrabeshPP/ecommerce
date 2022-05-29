@@ -30,7 +30,7 @@ const ListItem = () => {
       
       {products.items.length!==0 &&products.items.map((item) => (
           <div className={classes.itemDiv} key={item.id}>
-          <NavLink to="/:1">{<img src={item.image} alt={item.title} className={classes.image} />}</NavLink>
+          <NavLink to={`${item.id}`}>{<img src={item.image} alt={item.title} className={classes.image} />}</NavLink>
             <div className={classes.box}>
               <div className={classes.title}>
               {item.title}
