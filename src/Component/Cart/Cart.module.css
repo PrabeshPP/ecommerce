@@ -223,7 +223,13 @@
 
 .desc .title{
     font-size: 2.0rem;
+    width: 100%;
     color: black;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+
 }
 .footer{
     height: 20%;
