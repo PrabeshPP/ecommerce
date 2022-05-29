@@ -1,27 +1,130 @@
-.box{
+.box {
     height: 100vh;
     width: 100%;
-    background-color: red;
+    background-color: #bbd2d8;
     display: flex;
     align-items: center;
 }
 
-.container{
+.container {
     margin-left: 6%;
     width: 65%;
-    height: 90%;
+    height: auto;
     background-color: white;
     display: flex;
+    justify-content: space-between;
+    animation-name: detail;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+
+}
+
+@keyframes detail {
+    from{
+        transform:translateX(60vh) ;
+    }
+    to{
+        transform: translateX(0%);
+    }
     
 }
 
-.container .img{
+.container .img {
     width: 40%;
     height: 100%;
-    object-fit:contain;
+    object-fit: contain;
 }
 
-.rightBox{
-    width: 60%;
+.rightBox {
+    width: 55%;
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding-top: 5%;
+}
+
+.titleBox {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.descBox {
+    margin-top: 4%;
+    width: 100%;
+    font-size: 1.2rem;
+}
+
+.line {
+    margin-top: 4%;
+    border-top: 2px solid black;
+    width: 95%;
+}
+
+.price {
+    margin-top: 4%;
+    height: 5%;
+    font-size: 1.3rem;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    align-items: center;
+
+}
+
+.icons {
+    width: 25%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.icons .icon {
+    font-size: 1.3rem;
+
+}
+
+.icon:hover {
+    cursor: pointer;
+}
+
+.button {
+    margin-top: 5%;
+    margin-bottom: 5%;
+    display: flex;
+    width: 95%;
+    height: 10%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.button .buy{
+    height: 8vh;
+    width: 45%;
+    background-color: rgb(0, 187, 255);
+    font-size: 1.1rem;
+    color: white;
+    outline: none;
+    border: none;
+}
+
+.buy:hover{
+    cursor: pointer;
+    background-color: rgb(0, 167, 227);
+}
+
+.button .add{
+    height: 8vh;
+    width: 45%;
+    background-color: rgb(255, 119, 0);
+    font-size: 1.1rem;
+    color: white;
+    outline: none;
+    border: none;
+}
+
+.add:hover{
+    cursor: pointer;
+    background-color: rgb(226, 106, 0);
 }
