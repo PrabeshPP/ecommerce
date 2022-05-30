@@ -32,9 +32,11 @@ const ListItem = () => {
           <div className={classes.itemDiv} key={item.id}>
           <NavLink to={`${item.id}`}>{<img src={item.image} alt={item.title} className={classes.image} />}</NavLink>
             <div className={classes.box}>
-              <div className={classes.title}>
+              <NavLink to={`${item.id}`} className={classes.title}>
+                {<div>
               {item.title}
-              </div>
+              </div>}
+              </NavLink>
               <div className={classes.footer}>
                 <span>${item.price}</span>
                 {cart.items.find((product) => product.id === item.id) ? (

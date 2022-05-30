@@ -14,14 +14,14 @@
     display: flex;
     justify-content: space-between;
     animation-name: detail;
-    animation-duration: 1s;
+    animation-duration: 300ms;
     animation-timing-function: linear;
 
 }
 
 @keyframes detail {
     from{
-        transform:translateX(60vh) ;
+        transform:translateX(15vh) ;
     }
     to{
         transform: translateX(0%);
