@@ -31,8 +31,8 @@
 
 .container .img {
     width: 40%;
-    height: 100%;
-    object-fit: contain;
+    height: 80vh;
+    object-fit:fill;
 }
 
 .rightBox {
